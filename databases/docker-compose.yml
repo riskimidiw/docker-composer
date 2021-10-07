@@ -25,7 +25,18 @@ services:
     ports:
       - 9200:9200
       - 9300:9300
+  mongo:
+    image: mongo:5.0.3
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=secret
+    volumes:
+      - mongo:/data/db
+    ports:
+      - 27017:27017
 
 volumes:
   postgres:
-  elasticsearch: 
+  elasticsearch:
+  mongo:
